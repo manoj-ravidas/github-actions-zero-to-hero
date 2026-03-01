@@ -1,183 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Manoj R | DevOps Engineer</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+:root{
+  --primary:#00f7ff;
+  --glass:rgba(255,255,255,0.08);
+  --border:rgba(255,255,255,0.18);
 }
 
-body {
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  min-height: 100vh;
-  color: #fff;
-  overflow-x: hidden;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+  scroll-behavior:smooth;
 }
 
-.blur-bg {
-  position: fixed;
-  width: 400px;
-  height: 400px;
-  background: rgba(255, 255, 255, 0.1);
-  filter: blur(120px);
-  border-radius: 50%;
-  animation: float 8s infinite ease-in-out alternate;
+body{
+  background: radial-gradient(circle at 10% 20%, #0f2027 0%, #203a43 40%, #2c5364 100%);
+  color:white;
+  overflow-x:hidden;
 }
 
-.blur1 { top: -100px; left: -100px; }
-.blur2 { bottom: -100px; right: -100px; }
-
-@keyframes float {
-  from { transform: translateY(0px); }
-  to { transform: translateY(60px); }
+/* Animated background blobs */
+.blob{
+  position:fixed;
+  width:500px;
+  height:500px;
+  border-radius:50%;
+  filter:blur(140px);
+  z-index:-1;
+  animation: float 10s infinite alternate ease-in-out;
 }
 
-header {
-  padding: 30px 10%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.blob1{background:#00f7ff; top:-150px; left:-150px;}
+.blob2{background:#ff00c8; bottom:-150px; right:-150px;}
+
+@keyframes float{
+  from{transform:translateY(0px);}
+  to{transform:translateY(60px);}
 }
 
-.logo {
-  font-weight: 700;
-  font-size: 24px;
-  letter-spacing: 2px;
+header{
+  position:fixed;
+  width:100%;
+  padding:20px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  backdrop-filter:blur(15px);
+  background:rgba(0,0,0,0.2);
+  border-bottom:1px solid var(--border);
+  z-index:100;
 }
 
-nav a {
-  margin-left: 25px;
-  text-decoration: none;
-  color: #fff;
-  position: relative;
-  transition: 0.3s;
+.logo{
+  font-weight:800;
+  font-size:22px;
+  letter-spacing:2px;
 }
 
-nav a::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  left: 0;
-  bottom: -5px;
-  background: #00f7ff;
-  transition: 0.3s;
+nav a{
+  margin-left:30px;
+  text-decoration:none;
+  color:white;
+  position:relative;
+  transition:0.3s;
 }
 
-nav a:hover::after {
-  width: 100%;
+nav a:hover{
+  color:var(--primary);
 }
 
-.hero {
-  padding: 80px 10%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+section{
+  min-height:100vh;
+  padding:120px 8% 80px;
 }
 
-.hero-text {
-  max-width: 600px;
+.hero{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
 }
 
-.hero h1 {
-  font-size: 48px;
-  font-weight: 700;
+.hero h1{
+  font-size:56px;
+  font-weight:800;
 }
 
-.hero span {
-  color: #00f7ff;
+.hero span{
+  color:var(--primary);
 }
 
-.hero p {
-  margin-top: 20px;
-  font-size: 18px;
-  opacity: 0.9;
+.typing{
+  font-size:24px;
+  margin-top:20px;
+  color:#ccc;
 }
 
-.btn {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 12px 30px;
-  border-radius: 30px;
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.2);
-  color: #fff;
-  text-decoration: none;
-  transition: 0.4s;
+.btn{
+  margin-top:35px;
+  padding:14px 35px;
+  border-radius:50px;
+  background:var(--glass);
+  border:1px solid var(--border);
+  backdrop-filter:blur(10px);
+  cursor:pointer;
+  transition:0.4s;
+  display:inline-block;
 }
 
-.btn:hover {
-  background: #00f7ff;
-  color: #000;
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 247, 255, 0.4);
+.btn:hover{
+  background:var(--primary);
+  color:black;
+  transform:translateY(-6px) scale(1.05);
+  box-shadow:0 15px 30px rgba(0,247,255,0.4);
 }
 
-.section {
-  padding: 80px 10%;
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+  margin-top:50px;
 }
 
-.section h2 {
-  text-align: center;
-  margin-bottom: 50px;
-  font-size: 36px;
+.card{
+  padding:35px;
+  border-radius:25px;
+  background:var(--glass);
+  border:1px solid var(--border);
+  backdrop-filter:blur(15px);
+  transition:0.4s;
+  opacity:0;
+  transform:translateY(50px);
 }
 
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+.card.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
-.card {
-  padding: 30px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255,255,255,0.2);
-  transition: 0.4s;
+.card:hover{
+  transform:translateY(-12px);
+  box-shadow:0 20px 40px rgba(0,247,255,0.3);
 }
 
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 25px rgba(0, 247, 255, 0.3);
+.card h3{
+  color:var(--primary);
+  margin-bottom:15px;
 }
 
-.card h3 {
-  margin-bottom: 15px;
-  color: #00f7ff;
+footer{
+  text-align:center;
+  padding:30px;
+  opacity:0.6;
 }
 
-footer {
-  text-align: center;
-  padding: 30px;
-  opacity: 0.7;
-  margin-top: 50px;
-}
-
-@media(max-width: 768px) {
-  .hero {
-    flex-direction: column;
-    text-align: center;
-  }
+@media(max-width:768px){
+  .hero h1{font-size:40px;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="blur-bg blur1"></div>
-<div class="blur-bg blur2"></div>
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
 
 <header>
   <div class="logo">MANOJ R</div>
@@ -190,76 +185,68 @@ footer {
 </header>
 
 <section class="hero">
-  <div class="hero-text">
-    <h1>Hi, I'm <span>Manoj</span><br>DevOps Engineer</h1>
-    <p>
-      AWS | Linux | CI/CD | Jenkins | GitLab | Ansible | .NET Deployments  
-      Firewall (Palo Alto) | Cisco Networking  
-      Building scalable cloud infrastructure & automating everything.
-    </p>
-    <a href="#contact" class="btn">Let's Connect</a>
+  <div>
+    <h1>Hi, I'm <span>Manoj</span></h1>
+    <div class="typing" id="typing"></div>
+    <a href="#contact" class="btn">Let's Work Together</a>
   </div>
 </section>
 
-<section class="section" id="about">
+<section id="about">
   <h2>About Me</h2>
-  <div class="card-container">
+  <div class="cards">
     <div class="card">
-      <h3>DevOps Professional</h3>
-      <p>3+ years experience managing CI/CD pipelines, infrastructure automation, and cloud deployments.</p>
+      <h3>DevOps Engineer</h3>
+      <p>3+ years building CI/CD pipelines, Jenkins automation, GitLab workflows & Ansible deployments.</p>
     </div>
     <div class="card">
-      <h3>Cloud & Security</h3>
-      <p>Hands-on AWS services, VPC, EC2, S3, IAM, CloudFormation along with Palo Alto firewall & Cisco networking.</p>
+      <h3>Cloud Specialist</h3>
+      <p>AWS (EC2, S3, IAM, VPC, CloudFormation, DynamoDB, Kinesis) with secure architecture design.</p>
     </div>
     <div class="card">
-      <h3>Automation Enthusiast</h3>
-      <p>Automating .NET deployments using Jenkins + Ansible and working on 90DaysOfDevOps journey.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="skills">
-  <h2>Technical Skills</h2>
-  <div class="card-container">
-    <div class="card">
-      <h3>Cloud</h3>
-      <p>AWS (EC2, S3, IAM, VPC, CloudFormation, DynamoDB, Kinesis)</p>
-    </div>
-    <div class="card">
-      <h3>DevOps Tools</h3>
-      <p>Jenkins, GitLab CI/CD, Docker, Ansible, Git, Bash Scripting</p>
-    </div>
-    <div class="card">
-      <h3>System & Networking</h3>
-      <p>Linux Administration, Firewall (Palo Alto), Cisco Switching, L2 Security</p>
+      <h3>Networking & Security</h3>
+      <p>Palo Alto Firewall, Cisco Switching, L2 Security Operations & infrastructure monitoring.</p>
     </div>
   </div>
 </section>
 
-<section class="section" id="projects">
+<section id="skills">
+  <h2>Technical Stack</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>CI/CD</h3>
+      <p>Jenkins, GitLab CI, Docker, Bash</p>
+    </div>
+    <div class="card">
+      <h3>Automation</h3>
+      <p>Ansible Playbooks, .NET Deployment Automation</p>
+    </div>
+    <div class="card">
+      <h3>Linux</h3>
+      <p>Production Server Administration & Troubleshooting</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
   <h2>Projects</h2>
-  <div class="card-container">
+  <div class="cards">
     <div class="card">
-      <h3>Automated .NET Deployment</h3>
-      <p>Designed Jenkins pipeline integrated with Ansible playbooks for dynamic server deployment.</p>
+      <h3>Enterprise Deployment Pipeline</h3>
+      <p>Dynamic Jenkins pipeline integrated with Ansible for scalable multi-server .NET deployments.</p>
     </div>
     <div class="card">
-      <h3>CI/CD Optimization</h3>
-      <p>Improved build & release efficiency by implementing parallel pipelines and secure artifact management.</p>
-    </div>
-    <div class="card">
-      <h3>Cloud Infrastructure Setup</h3>
-      <p>Provisioned secure AWS infrastructure using CloudFormation with monitoring & logging best practices.</p>
+      <h3>AWS Infrastructure Automation</h3>
+      <p>Provisioned secure VPC architecture using CloudFormation with monitoring & logging integration.</p>
     </div>
   </div>
 </section>
 
-<section class="section" id="contact">
+<section id="contact">
   <h2>Contact</h2>
-  <div class="card-container">
+  <div class="cards">
     <div class="card">
-      <h3>Get In Touch</h3>
+      <h3>Connect With Me</h3>
       <p>Email: manoj@example.com</p>
       <p>LinkedIn: linkedin.com/in/manoj</p>
       <p>GitHub: github.com/manoj</p>
@@ -270,6 +257,46 @@ footer {
 <footer>
   © 2026 Manoj R | DevOps Engineer
 </footer>
+
+<script>
+/* Typing Effect */
+const text = ["DevOps Engineer", "AWS Specialist", "CI/CD Expert", "Automation Enthusiast"];
+let count = 0;
+let index = 0;
+let currentText = "";
+let letter = "";
+
+(function type(){
+  if(count === text.length){
+    count = 0;
+  }
+  currentText = text[count];
+  letter = currentText.slice(0, ++index);
+
+  document.getElementById("typing").textContent = letter;
+
+  if(letter.length === currentText.length){
+    setTimeout(()=>{
+      index = 0;
+      count++;
+    },1000);
+  }
+  setTimeout(type,100);
+})();
+
+/* Scroll Reveal */
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+document.querySelectorAll(".card").forEach(card=>{
+  observer.observe(card);
+});
+</script>
 
 </body>
 </html>
